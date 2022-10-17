@@ -1,3 +1,17 @@
+<!-- テンプレート化する -->
+<h1>User info</h1>
+<table>
+  <tr>
+    <th>name</th>
+    <th>introduction</th>
+  </tr>
+  <tr>
+    <td><%= current_user.name%></td>
+    <td><%= current_user.introduction%></td>
+  </tr>
+</table>
+<%= link_to "edit", edit_user_path(current_user.id) %>
+
 <p>users/show</p>
 <!-- テンプレート化する -->
 <%= form_with model: @book do |f| %>
