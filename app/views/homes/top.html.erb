@@ -1,7 +1,11 @@
-<h1>welcome to Bookers !!</h1>
-<p class = "bookers_setumei">InBookers,<br />
-  you can share and exchange your opinions , inpressions , and emotions<br />
-  about various books!
-</p>
-<%= link_to "Log in", new_user_session_path %>
-<%= link_to "Sign up", new_user_registration_path %>
+<main>
+  <div class = "container">
+      <h1>welcome to <i class="fas fa-book"></i>Bookers!!</h1>
+      <p class = "bookers_setumei">In <i class="fas fa-book"></i>Bookers,<br />
+        you can share and exchange your opinions , inpressions , and emotions<br />
+        about various books!
+      </p>
+      <%= link_to "Log in", new_user_session_path, class:"btn btn-block btn-info mt-4" %>
+      <%= link_to "Sign up", new_user_registration_path, class:"btn btn-md btn-block btn-success mt-4" %>
+  </div>
+</main>
