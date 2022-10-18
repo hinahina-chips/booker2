@@ -13,6 +13,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @book_new = Book.new
   end
 
   def edit
@@ -21,7 +22,7 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id]) #bookの取得
-    @book.update(book_params)#bookのアップデート
+    @book.update(book_params)#bookのアップデート,user_idは変わらないから大丈夫
     redirect_to book_path(@book.id)#bookの詳細ページへのパス
   end
 
