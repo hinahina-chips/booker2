@@ -6,14 +6,24 @@
     <% end %>
   </ul>
 <% end %>
-<h1>User info</h1>
-<%= form_with model: @user do |f| %>
-  <p>Name</p>
-  <%= f.text_field :name %><!--モデル名をもとにdbにアクセス -->
-  <%= f.file_field :profile_image, accept: "image/*" %>
-  <p>Introduction</p>
-  <%= f.text_area :introduction %>
-  <%= f.submit 'Update User' %>
-<% end %>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-sm-12 col-md-8 col-lg-5 mx-auto">
+      <h1>User info</h1>
+      <%= form_with model: @user do |f| %>
+        <p>Name</p>
+        <%= f.text_field :name, class:"input_box"%><!--モデル名をもとにdbにアクセス -->
+
+        <p>Image</p>
+        <%= f.file_field :profile_image, accept: "image/*", class:"input_box"%>
+
+        <p>Introduction</p>
+        <%= f.text_area :introduction, class:"input_box" %>
+
+        <br /><%= f.submit 'Update User', class:"btn btn-lg btn-secondary"%>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 

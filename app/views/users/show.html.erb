@@ -1,29 +1,24 @@
 <!-- テンプレート化する -->
-  <div class = "container">
+  <div class = "container px-5 px-sm-0">
    <div class = "row">
-     <div class = "col-lg-4">
+     <div class = "col-md-3">
         <h1>User info</h1>
         <%= image_tag @user.get_profile_image(100,100) %>
         <table class = "table">
           <tr>
             <th>name</th>
-            <th>introduction</th>
+            <td><%= @user.name%></td>
           </tr>
           <tr>
-            <td><%= @user.name%></td>
+            <th>introduction</th>
             <td><%= @user.introduction%></td>
           </tr>
         </table>
         <!-- profile編集button -->
-        <% if @user.id == current_user.id %>
-          <%= link_to edit_user_path(current_user.id), class:"btn btn-lg btn-block btn-light mt-4" do %>
+          <%= link_to edit_user_path(@user.id), class:"btn btn-lg btn-block btn-light mt-4" do %>
             <i class="fas fa-user-cog"></i><!-- このユーザーページが自分の場合 -->
           <% end %>
-        <% else %>
-          <%= link_to user_path(current_user.id), class:"btn btn-lg btn-block btn-light mt-4" do %>
-            <i class="fas fa-user-cog"></i>
-          <% end %>
-        <% end %>
+
 
         <%= form_with model: @book do |f| %>
           <h2>New book</h2>
@@ -31,11 +26,11 @@
           <%= f.text_field :title %>
           <p>Opinion</p>
           <%= f.text_area :body %>
-          <%= f.submit 'Create Book', class:"btn btn-lg btn-block btn-light mt-4" %>
+          <%= f.submit 'Create Book', class:"btn btn-lg btn-success mt-4" %>
         <% end %>
       </div>
 
-      <div class = "col-lg-8">
+      <div class = "col-md-8 offset-md-1">
         <h1>Book</h1>
         <table class = "table">
           <tr>
@@ -45,7 +40,11 @@
           </tr>
           <% @user.books.each do |book| %>
             <tr>
-              <td><%= image_tag current_user.get_profile_image(100,100) %></td>
+              <td>
+                <%= link_to user_path(@user.id) do %>
+                  <%= image_tag @user.get_profile_image(100,100) %>
+                <% end %>
+              </td>
               <td><%= link_to book.title, book_path(book.id) %></td>
               <td><%= book.body %></td>
             </tr>

@@ -1,5 +1,5 @@
 
-<div class = "col-lg-4">
+<div class = "col-md-3">
   <h1>User info</h1>
   <%= image_tag current_user.get_profile_image(100,100) %>
   <table class = "table">
@@ -9,7 +9,7 @@
     </tr>
     <tr>
       <th>introduction</th>
-      <td><%= current_user.introduction%></td>
+      <td><%= current_user.introduction %></td>
     </tr>
   </table>
 
@@ -24,6 +24,6 @@
     <%= f.text_field :title %>
     <p>Opinion</p>
     <%= f.text_area :body %>
-    <%= f.submit 'Create Book', class:"btn btn-lg btn-block btn-light mt-4" %>
+    <%= f.submit 'Create Book', class:"btn btn-lg btn-success mt-4" %>
   <% end %>
 </div>
